@@ -23,4 +23,8 @@ class MealsController < ApplicationController
   def set_meal
     @meal = Meal.find(params[:id])
   end
+
+  def meals_params
+    params.require(:meal).permit(%i[title description category price cooking_time user_id])
+  end
 end
