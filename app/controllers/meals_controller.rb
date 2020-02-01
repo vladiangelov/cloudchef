@@ -11,6 +11,7 @@ class MealsController < ApplicationController
 
   def create
     @meal = Meal.new(meal_params)
+    @meal.user = current_user
     if @meal.save
       redirect_to meal_path(@meal)
     else
@@ -25,6 +26,6 @@ class MealsController < ApplicationController
   end
 
   def meals_params
-    params.require(:meal).permit(%i[title description category price cooking_time user_id])
+    params.require(:meal).permit(%i[title description category price cooking_time])
   end
 end
