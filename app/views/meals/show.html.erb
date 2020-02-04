@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="card">
+    <h4> Chef: <%= @meal.user.email %> </h4>
+    <p> Specialty: <%= @meal.title %></p>
+    <p> Description: <%= @meal.description %></p>
+    <p> Category: <%= @meal.category %></p>
+    <p> Price: <%= @meal.price %></p>
+    <p> Cooking_time: <%= @meal.cooking_time %></p>
+  </div>
+  <%= link_to 'Back to Meals', meals_path, class: "btn btn-outline-dark" %>
+  <%= link_to 'Edit meal', edit_meal_path, class: "btn btn-outline-dark" %>
+</div>
+
+
