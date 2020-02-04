@@ -23,7 +23,7 @@ class MealsController < ApplicationController
   end
 
   def update
-    @meal.update(meals_params)
+    @meal.update(meal_params)
 
     redirect_to meal_path(@meal)
   end
@@ -34,7 +34,7 @@ class MealsController < ApplicationController
     @meal = Meal.find(params[:id])
   end
 
-  def meals_params
+  def meal_params
     params.require(:meal).permit(%i[title description category price cooking_time])
   end
 end
