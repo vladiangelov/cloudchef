@@ -1,5 +1,5 @@
 class MealsController < ApplicationController
-  # before_action :set_meal, only: %i[show edit destroy update]
+  before_action :set_meal, only: %i[show edit destroy update]
 
   def index
     @meals = Meal.all
@@ -7,6 +7,9 @@ class MealsController < ApplicationController
 
   def new
     @meal = Meal.new
+  end
+
+  def show
   end
 
   def create
@@ -26,6 +29,11 @@ class MealsController < ApplicationController
     @meal.update(meal_params)
 
     redirect_to meal_path(@meal)
+  end
+
+  def destroy
+    @meal.destroy
+    redirect_to meals_path
   end
 
   private
