@@ -7,6 +7,7 @@ class MealsController < ApplicationController
   end
 
   def show
+    authorize @meal
   end
 
   def new
