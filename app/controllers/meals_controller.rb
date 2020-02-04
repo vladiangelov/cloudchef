@@ -1,20 +1,24 @@
 class MealsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index]
   before_action :set_meal, only: %i[show edit destroy update]
 
   def index
-    @meals = Meal.all
+    @meals = policy_scope(Meal)
+  end
+
+  def show
   end
 
   def new
     @meal = Meal.new
   end
 
-  def show
-  end
-
   def create
     @meal = Meal.new(meal_params)
     @meal.user = current_user
+
+    authorize @meal
+
     if @meal.save
       redirect_to meal_path(@meal)
     else
