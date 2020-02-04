@@ -19,6 +19,15 @@ class MealsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    @meal.update(meals_params)
+
+    redirect_to meal_path(@meal)
+  end
+
   private
 
   def set_meal
