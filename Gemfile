@@ -8,6 +8,7 @@ gem 'pg', '~> 0.21'
 gem 'puma'
 gem 'rails', '5.2.4.1'
 gem 'redis'
+gem 'faker'
 gem 'pundit'
 
 gem 'autoprefixer-rails'
