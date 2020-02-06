@@ -1,11 +1,24 @@
 <div class="container">
   <div class="card">
-    <h4> Chef: <%= @meal.user.email %> </h4>
-    <p> Specialty: <%= @meal.title %></p>
-    <p> Description: <%= @meal.description %></p>
-    <p> Category: <%= @meal.category %></p>
-    <p> Price: <%= @meal.price %></p>
-    <p> Cooking_time: <%= @meal.cooking_time %></p>
+    <table>
+    <tr>
+      <td>
+        <% if @meal.photo.attached? %>
+          <%= cl_image_tag @meal.photo.key, height: 300, width: 300, crop: :fill %>
+        <% else %>
+          <%= image_tag "chef_logo_alt.png" , height: 300, width: 300, crop: :fill %>
+        <% end %>
+      </td>
+      <td id="meal_details">
+        <h4> Chef: <%= @meal.user.email %> </h4>
+        <p> Specialty: <%= @meal.title %></p>
+        <p> Description: <%= @meal.description %></p>
+        <p> Category: <%= @meal.category %></p>
+        <p> Price: <%= @meal.price %></p>
+        <p> Cooking_time: <%= @meal.cooking_time %></p>
+      </td>
+    </tr>
+    </table>
   </div>
   <%= link_to 'Back to Meals', meals_path, class: "btn btn-outline-dark" %>
   <%= link_to 'Edit meal', edit_meal_path, class: "btn btn-outline-dark" %>
