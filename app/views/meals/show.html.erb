@@ -8,7 +8,9 @@
     <p> Cooking_time: <%= @meal.cooking_time %></p>
   </div>
   <%= link_to 'Back to Meals', meals_path, class: "btn btn-outline-dark" %>
-  <%= link_to 'Edit meal', edit_meal_path, class: "btn btn-outline-dark" %>
+  <% if policy(@meal).edit? %>
+    <%= link_to 'Edit meal', edit_meal_path, class: "btn btn-outline-dark" %>
+  <% end %>
 </div>
 
 
