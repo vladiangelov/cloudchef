@@ -3,7 +3,11 @@
     <table>
     <tr>
       <td>
-      <%= cl_image_tag @meal.photo.key, height: 300, width: 300, crop: :fill %>
+        <% if @meal.photo.attached? %>
+          <%= cl_image_tag @meal.photo.key, height: 300, width: 300, crop: :fill %>
+        <% else %>
+          <%= image_tag "chef_logo_alt.png" , height: 300, width: 300, crop: :fill %>
+        <% end %>
       </td>
       <td id="meal_details">
         <h4> Chef: <%= @meal.user.email %> </h4>
