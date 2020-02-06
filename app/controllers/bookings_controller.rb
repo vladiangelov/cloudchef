@@ -15,6 +15,8 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
+    @meal = Meal.find(params[:meal_id])
+    booking.meal = @meal
     if @booking.save
       redirect_to booking_path(@booking)
     else
