@@ -1,0 +1,15 @@
+<div class="container">
+<div class="row">
+  <% @meals.each do |meal| %>
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card" >
+          <%= link_to meal_path(meal), class: "btn btn-light" do %>
+            <%= meal.title.capitalize %> <p>by</p> <%= meal.user.email %>
+          <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to 'create a meal', new_meal_path, class: "btn btn-outline-dark" %>
+
