@@ -52,7 +52,7 @@ class MealsController < ApplicationController
   end
 
   def meal_params
-    params.require(:meal).permit(%i[title description category price cooking_time])
+    params.require(:meal).permit(%i[title description category price cooking_time photo])
   end
 
   def authorize_meal
