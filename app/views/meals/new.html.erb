@@ -1,14 +1,2 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-4 col-sm-offset-3">
-      <h3>Add your meal</h3>
-      <%= simple_form_for(@meal) do |f| %>
-        <%= f.input :title %>
-        <%= f.input :description %>
-        <%= f.input :category %>
-        <%= f.input :price %>
-        <%= f.input :cooking_time %>        <%= f.submit "Submit", class: "btn btn-outline-dark" %> <%= link_to "Back to meals", meals_path, class: "btn btn-outline-dark" %>
-      <% end %>
-    </div>
-  </div>
-</div>
+
+<%= render 'form', cocktail: @cocktail %>
