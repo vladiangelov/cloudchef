@@ -16,5 +16,6 @@
   <% end %>
 </div>
 
-<%= link_to 'create a meal', new_meal_path, class: "btn btn-outline-dark" %>
-
+<% if policy(@meals).create? %>
+  <%= link_to 'create a meal', new_meal_path, class: "btn btn-outline-dark" %>
+<% end %>
