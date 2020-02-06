@@ -4,6 +4,7 @@
     <div class="col-12 col-md-6 col-lg-4">
       <div class="card" >
           <%= link_to meal_path(meal), class: "btn btn-light" do %>
+            <%= cl_image_tag meal.photo.key, height: 300, width: 300, crop: :fill %>
             <%= meal.title.capitalize %> <p>by</p> <%= meal.user.email %>
           <% end %>
       </div>
