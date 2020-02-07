@@ -22,6 +22,6 @@ class MealPolicy < ApplicationPolicy
   end
 
   def user_is_owner_or_admin?
-    record.user == user || record.user.admin
+    record.user == user || user.try(:admin)
   end
 end
