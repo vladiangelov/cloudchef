@@ -40,7 +40,7 @@ class MealsController < ApplicationController
   end
 
   def destroy
-    authorize @mail
+    authorize @meal
     @meal.destroy
     redirect_to meals_path
   end
