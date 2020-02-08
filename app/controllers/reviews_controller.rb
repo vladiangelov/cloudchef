@@ -2,7 +2,7 @@ class ReviewsController < ApplicationController
   before_action :set_review, only: %i[show edit destroy update]
 
   def new
-    @meal = Meal.find(params[:meal_id])
+    @booking = Booking.find(params[:booking_id])
     @review = Review.new
     authorize @review
   end
@@ -10,9 +10,8 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
-    @meal = Meal.find(params[:meal_id])
-    @review.meal = @meal
-    @review.user = current_user
+    @booking = Booking.find(params[:meal_id])
+    @review.booking = @booking
     authorize @review
     @review.save
 
