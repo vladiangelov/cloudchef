@@ -20,7 +20,20 @@
     </tr>
     </table>
   </div>
-  <%= link_to 'Back to Meals', meals_path, class: "btn btn-outline-dark" %>
+
+        <div class="reviews">
+          <ul class="reviews-list">
+            <% @reviews.each do |review| %>
+              <li>
+                <%= review.rating %> -
+                <%= review.content %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+
+  <%= link_to 'Back to Meals', meals_path, class: "btn btn-outline-dark" %> <%= link_to 'Add Review', meal_reviews_path(:id), class: "btn btn-outline-dark" %>
+
   <% if policy(@meal).edit? %>
     <%= link_to 'Edit meal', edit_meal_path, class: "btn btn-outline-dark" %>
     <%= link_to 'Book this meal', new_booking_path, class: "btn btn-outline-dark"   %>
