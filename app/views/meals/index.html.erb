@@ -1,16 +1,23 @@
-<div class="container">
 <div class="row">
   <% @meals.each do |meal| %>
     <div class="col-12 col-md-6 col-lg-4">
-      <div class="card" >
-          <%= link_to meal_path(meal), class: "btn btn-light" do %>
-            <% if meal.photo.attached? %>
-              <%= cl_image_tag meal.photo.key, height: 300, width: 300, crop: :fill %>
-            <% else %>
-              <%= image_tag "chef_logo_alt.png", height: 300, width: 300, crop: :fill %>
-            <% end %>
-            <%= meal.title.capitalize %> <p>by</p> <%= meal.user.email %>
+      <div class="card-trip">
+        <%= link_to meal_path(meal), class: "card-link" do %>
+          <% if meal.photo.attached? %>
+            <%= cl_image_tag meal.photo.key, height: 300, crop: :fit%>
+          <% else %>
+            <%= image_tag "chef_logo_alt.png", height: 300 %>
           <% end %>
+          <div class="card-trip-infos">
+            <div>
+              <h2 id='meal_index_chef'><%= meal.title.capitalize %></h2>
+              <p><%= meal.category %></p>
+              <p>Price is <strong>£<%= meal.price %></strong> per person</p>
+            </div>
+            <h2 class="card-trip-pricing"><%= meal.cooking_time %></h2>
+            <img src="https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1573660923/rayadzbf4p9tjg6mgte4.jpg" class="card-trip-user avatar-bordered" />
+          </div>
+        <% end %>
       </div>
     </div>
   <% end %>
