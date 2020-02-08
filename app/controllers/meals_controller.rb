@@ -7,8 +7,8 @@ class MealsController < ApplicationController
   end
 
   def show
-    @reviews = @meal.reviews
-    authorize @reviews
+    #@reviews = @meal.reviews
+    #authorize @reviews
     authorize @meal
   end
 
