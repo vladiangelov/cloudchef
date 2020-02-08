@@ -40,6 +40,7 @@ class MealsController < ApplicationController
   end
 
   def destroy
+    authorize @mail
     @meal.destroy
     redirect_to meals_path
   end
@@ -52,9 +53,5 @@ class MealsController < ApplicationController
 
   def meal_params
     params.require(:meal).permit(%i[title description category price cooking_time photo])
-  end
-
-  def authorize_meal
-    authorize @meal
   end
 end
