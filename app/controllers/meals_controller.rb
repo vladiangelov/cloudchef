@@ -1,5 +1,5 @@
 class MealsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index]
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_meal, only: %i[show edit destroy update]
 
   def index
@@ -29,15 +29,18 @@ class MealsController < ApplicationController
   end
 
   def edit
+    authorize @meal
   end
 
   def update
+    authorize @meal
     @meal.update(meal_params)
 
     redirect_to meal_path(@meal)
   end
 
   def destroy
+    authorize @mail
     @meal.destroy
     redirect_to meals_path
   end
@@ -49,6 +52,6 @@ class MealsController < ApplicationController
   end
 
   def meal_params
-    params.require(:meal).permit(%i[title description category price cooking_time])
+    params.require(:meal).permit(%i[title description category price cooking_time photo])
   end
 end

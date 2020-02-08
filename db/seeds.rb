@@ -6,16 +6,53 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-user = User.create! :email => 'john@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret'
+require "open-uri"
 
-10.times do
+user1 = User.create! :email => 'john@gmail.com', :password => '123456', :password_confirmation => '123456'
+user2 = User.create! :email => 'bob@gmail.com', :password => '123456', :password_confirmation => '123456'
+
+5.times do
   title = Faker::Food.dish
+  photo = "https://source.unsplash.com/random/?dinner " + title
   category = Faker::Nation.nationality
   price = Faker::Number.number(digits: 2)
   cooking_time = (Faker::Number.number(digits: 2)).to_s + "min"
   description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
   input_hash = {title: title, category: category, price: price, cooking_time: cooking_time, description: description}
   meal = Meal.new(input_hash)
-  meal.user = user
+  meal.user = user1
+  file = URI.open(photo)
+  meal.photo.attach(io: file, filename: 'test.jpeg', content_type: 'image/png')
   meal.save
+  sleep(2)
 end
+
+5.times do
+  title = Faker::Food.dish
+  photo = "https://source.unsplash.com/random/?dinner " + title
+  category = Faker::Nation.nationality
+  price = Faker::Number.number(digits: 2)
+  cooking_time = (Faker::Number.number(digits: 2)).to_s + "min"
+  description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+  input_hash = {title: title, category: category, price: price, cooking_time: cooking_time, description: description}
+  meal = Meal.new(input_hash)
+  meal.user = user2
+  file = URI.open(photo)
+  meal.photo.attach(io: file, filename: 'test.jpeg', content_type: 'image/png')
+  meal.save
+  sleep(2)
+end
+
+
+
+
+
+# file = URI.open(photo)
+# meal = Meal.find(1)
+# meal.photo.attach(io: file, filename: 'test.jpeg', content_type: 'image/png')
+# meal.save
+
+# file = URI.open(photo)
+# meal = Meal.find(2)
+# meal.photo.attach(io: file, filename: 'test.jpeg', content_type: 'image/png')
+# meal.save

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!-- SQL XML created by WWW SQL Designer, https://github.com/ondras/wwwsqldesigner/ -->
-<!-- Active URL: https://kitt.lewagon.com/db/3251 -->
+<!-- Active URL: https://kitt.lewagon.com/db/4096 -->
 <sql>
 <datatypes db="postgresql">
   <group label="Numeric" color="rgb(238,238,170)">
@@ -52,7 +52,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="510" y="198" name="meal">
+<table x="364" y="232" name="meal">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -79,7 +79,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="321" y="10" name="booking">
+<table x="251" y="8" name="booking">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -104,7 +104,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="525" y="21" name="review">
+<table x="141" y="258" name="review">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -114,9 +114,13 @@
 <row name="content" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="booking_id" null="1" autoincrement="0">
+<row name="meal_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="booking" row="id" />
+<default>NULL</default><relation table="meal" row="id" />
+</row>
+<row name="user_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="user" row="id" />
 </row>
 <key type="PRIMARY" name="">
 <part>id</part>
