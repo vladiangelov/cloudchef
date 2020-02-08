@@ -7,6 +7,8 @@ class MealsController < ApplicationController
   end
 
   def show
+    #@reviews = @meal.reviews
+    #authorize @reviews
     authorize @meal
   end
 
@@ -40,7 +42,7 @@ class MealsController < ApplicationController
   end
 
   def destroy
-    authorize @mail
+    authorize @meal
     @meal.destroy
     redirect_to meals_path
   end
