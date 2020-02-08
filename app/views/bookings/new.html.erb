@@ -1,13 +1,14 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-4 col-sm-offset-3">
-      <h3>Edit your meal</h3>
-      <%= simple_form_for(@meal) do |f| %>
+      <h3>C your booking</h3>
+      <%= simple_form_for [@meal, @booking], url: meal_bookings_path do |f| %>
         <%= f.input :date %>
         <%= f.input :time %>
         <%= f.input :servings %>
-        <%= f.submit "Submit", class: "btn btn-outline-dark" %> <%= link_to "Back to meals", meals_path, class: "btn btn-outline-dark" %>
+        <%= f.submit "Submit", class: "btn btn-outline-dark" %>
       <% end %>
+      <%= link_to "Back to meals", meals_path, class: "btn btn-outline-dark" %>
     </div>
   </div>
 </div>

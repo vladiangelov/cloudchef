@@ -1,0 +1,21 @@
+<div class="container">
+<div class="row">
+  <% @bookings.each do |booking| %>
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card" >
+          <%= link_to new_meal_booking_path(meal_id), class: "btn btn-light" do %>
+            <% if meal.photo.attached? %>
+              <%= cl_image_tag meal.photo.key, height: 300, width: 300, crop: :fill %>
+            <% else %>
+              <%= image_tag "chef_logo_alt.png", height: 300, width: 300, crop: :fill %>
+            <% end %>
+            <%= meal.title.capitalize %> <p>by</p> <%= meal.user.email %>
+          <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<% if policy(@bookings).create? %>
+  <%= link_to 'create a meal', new_meal_path, class: "btn btn-outline-dark" %>
+<% end %>
