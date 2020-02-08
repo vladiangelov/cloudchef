@@ -6,13 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+require "open-uri"
+
 user1 = User.create! :email => 'john@gmail.com', :password => '123456', :password_confirmation => '123456'
-
 user2 = User.create! :email => 'bob@gmail.com', :password => '123456', :password_confirmation => '123456'
-
 
 5.times do
   title = Faker::Food.dish
+  photo = "https://source.unsplash.com/random/?dinner " + title
   category = Faker::Nation.nationality
   price = Faker::Number.number(digits: 2)
   cooking_time = (Faker::Number.number(digits: 2)).to_s + "min"
@@ -20,11 +21,15 @@ user2 = User.create! :email => 'bob@gmail.com', :password => '123456', :password
   input_hash = {title: title, category: category, price: price, cooking_time: cooking_time, description: description}
   meal = Meal.new(input_hash)
   meal.user = user1
+  file = URI.open(photo)
+  meal.photo.attach(io: file, filename: 'test.jpeg', content_type: 'image/png')
   meal.save
+  sleep(2)
 end
 
 5.times do
   title = Faker::Food.dish
+  photo = "https://source.unsplash.com/random/?dinner " + title
   category = Faker::Nation.nationality
   price = Faker::Number.number(digits: 2)
   cooking_time = (Faker::Number.number(digits: 2)).to_s + "min"
@@ -32,5 +37,22 @@ end
   input_hash = {title: title, category: category, price: price, cooking_time: cooking_time, description: description}
   meal = Meal.new(input_hash)
   meal.user = user2
+  file = URI.open(photo)
+  meal.photo.attach(io: file, filename: 'test.jpeg', content_type: 'image/png')
   meal.save
+  sleep(2)
 end
+
+
+
+
+
+# file = URI.open(photo)
+# meal = Meal.find(1)
+# meal.photo.attach(io: file, filename: 'test.jpeg', content_type: 'image/png')
+# meal.save
+
+# file = URI.open(photo)
+# meal = Meal.find(2)
+# meal.photo.attach(io: file, filename: 'test.jpeg', content_type: 'image/png')
+# meal.save
