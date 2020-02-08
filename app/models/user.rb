@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_many :meals
   has_one_attached :photo
   has_many :bookings
+  has_many :reviews
 end
