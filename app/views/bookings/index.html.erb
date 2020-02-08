@@ -15,6 +15,7 @@
         <p>Time: <%= booking.time %></p>
         <p>Description: <%= booking.meal.description %></p>
       </div>
+    <%= link_to 'Add Review', new_booking_review_path(booking), class: "btn btn-outline-dark" %>
     </div>
   <% end %>
 </div>
