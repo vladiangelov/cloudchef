@@ -1,21 +1,20 @@
-<div class="container">
+<br>
+<h1>My bookings</h1>
 <div class="row">
   <% @bookings.each do |booking| %>
-    <div class="col-12 col-md-6 col-lg-4">
-      <div class="card" >
-          <%= link_to new_meal_booking_path(meal_id), class: "btn btn-light" do %>
-            <% if meal.photo.attached? %>
-              <%= cl_image_tag meal.photo.key, height: 300, width: 300, crop: :fill %>
-            <% else %>
-              <%= image_tag "chef_logo_alt.png", height: 300, width: 300, crop: :fill %>
-            <% end %>
-            <%= meal.title.capitalize %> <p>by</p> <%= meal.user.email %>
-          <% end %>
+    <div class="card-product">
+      <% if booking.meal.photo.attached? %>
+        <%= cl_image_tag booking.meal.photo.key, height: 300, width: 300, crop: :fill %>
+      <% else %>
+        <%= image_tag "chef_logo_alt.png" , height: 300, width: 300, crop: :fill %>
+      <% end %>
+      <div class="card-product-infos">
+        <h2><%= booking.meal.title %></h2>
+        <p>Customer: <%= booking.user.email %></p>
+        <p>Date: <%= booking.date %></p>
+        <p>Time: <%= booking.time %></p>
+        <p>Description: <%= booking.meal.description %></p>
       </div>
     </div>
   <% end %>
 </div>
-
-<% if policy(@bookings).create? %>
-  <%= link_to 'create a meal', new_meal_path, class: "btn btn-outline-dark" %>
-<% end %>
