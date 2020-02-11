@@ -6,8 +6,8 @@
     <title>TODO</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
-    <%= stylesheet_pack_tag 'init_mapbox', media: 'all' %>
-    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%#= stylesheet_pack_tag 'init_mapbox', media: 'all' %>
+    <%= stylesheet_link_tag 'application', media: 'all', turbolink_track: true %>
     <%= stylesheet_pack_tag 'application', media: 'all' %>
     <link href="https://fonts.googleapis.com/css?family=Clicker+Script&display=swap" rel="stylesheet">
   </head>
