@@ -6,10 +6,11 @@ class MealsController < ApplicationController
     @meals = policy_scope(Meal)
     @meals = @meals.geocoded #returns flats with coordinates
 
-    @markers = @meals.map do |flat|
+    @markers = @meals.map do |meal|
       {
-        lat: flat.latitude,
-        lng: flat.longitude
+        lat: meal.latitude,
+        lng: meal.longitude,
+        infoWindow: render_to_string(partial: "map_box", locals: { meal: meal })
       }
     end
   end
