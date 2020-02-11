@@ -14,7 +14,7 @@ post_code = ['E5 9BL', 'E10 5EZ', 'SW10 0TZ', 'SE5 8TR', 'SE14 5RT', 'SW7 2LT', 
 
 5.times do
   title = Faker::Food.dish
-  photo = "https://source.unsplash.com/random/?dinner " + title
+  title.gsub!(/[^[:ascii:]]/, "")
   category = Faker::Nation.language
   price = Faker::Number.number(digits: 2)
   cooking_time = (Faker::Number.number(digits: 2)).to_s + "min"
@@ -22,6 +22,8 @@ post_code = ['E5 9BL', 'E10 5EZ', 'SW10 0TZ', 'SE5 8TR', 'SE14 5RT', 'SW7 2LT', 
   input_hash = {title: title, category: category, price: price, cooking_time: cooking_time, description: description}
   meal = Meal.new(input_hash)
   meal.user = user1
+
+  photo = "https://source.unsplash.com/random/?dinner " + title
   file = URI.open(photo)
   meal.photo.attach(io: file, filename: 'test.jpeg', content_type: 'image/png')
 
@@ -33,7 +35,7 @@ end
 
 5.times do
   title = Faker::Food.dish
-  photo = "https://source.unsplash.com/random/?dinner " + title
+  title.gsub!(/[^[:ascii:]]/, "")
   category = Faker::Nation.language
   price = Faker::Number.number(digits: 2)
   cooking_time = (Faker::Number.number(digits: 2)).to_s + "min"
@@ -41,11 +43,14 @@ end
   input_hash = {title: title, category: category, price: price, cooking_time: cooking_time, description: description}
   meal = Meal.new(input_hash)
   meal.user = user2
+
+  photo = "https://source.unsplash.com/random/?dinner " + title
   file = URI.open(photo)
   meal.photo.attach(io: file, filename: 'test.jpeg', content_type: 'image/png')
 
   puts "Adding address...#{post_code[0]}"
   meal.address = post_code.slice!(0)
+  
   meal.save
   sleep(2)
 end
