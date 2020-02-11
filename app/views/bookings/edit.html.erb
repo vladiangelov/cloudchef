@@ -1,12 +1,11 @@
-
-
 <div class="container">
   <div class="row">
     <div class="col-sm-4 col-sm-offset-3">
-      <h3>Review your meal</h3>
-      <%= simple_form_for [@booking, @review] do |f| %>
-        <%= f.input :rating %>
-        <%= f.input :content %>
+      <h3>Edit your booking meal</h3>
+      <%= simple_form_for(@booking) do |f| %>
+        <%= f.input :date %>
+        <%= f.input :time %>
+        <%= f.input :servings %>
         <%= f.submit "Submit", class: "btn btn-outline-dark" %> <%= link_to "Back to meals", meals_path, class: "btn btn-outline-dark" %>
       <% end %>
     </div>

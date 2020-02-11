@@ -2,11 +2,13 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: %i[show edit destroy update]
 
   def index
-    @bookings = Booking.all
+    @bookings = policy_scope(Booking)
+    authorize @bookings
   end
 
   def new
     @booking = Booking.new
+    authorize @booking
   end
 
   def show
@@ -16,9 +18,11 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @meal = Meal.find(params[:meal_id])
-    booking.meal = @meal
+    @booking.meal = @meal
+    authorize @booking
+
     if @booking.save
-      redirect_to booking_path(@booking)
+      redirect_to meal_booking_path(@meal, @booking)
     else
       render :new
     end
@@ -41,6 +45,7 @@ class BookingsController < ApplicationController
 
   def set_booking
     @booking = Booking.find(params[:id])
+    authorize @booking
   end
 
   def booking_params
