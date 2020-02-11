@@ -4,6 +4,15 @@ class MealsController < ApplicationController
 
   def index
     @meals = policy_scope(Meal)
+    @meals = @meals.geocoded #returns flats with coordinates
+
+    @markers = @meals.map do |meal|
+      {
+        lat: meal.latitude,
+        lng: meal.longitude,
+        infoWindow: render_to_string(partial: "map_box", locals: { meal: meal })
+      }
+    end
   end
 
   def show
