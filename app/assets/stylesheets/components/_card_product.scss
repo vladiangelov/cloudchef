@@ -1,5 +1,6 @@
 .card-product {
-  margin: 36px;
+  margin-left: 16px;
+  margin-bottom: 36px;
   overflow: hidden;
   height: 300px;
   background: white;
@@ -10,7 +11,7 @@
 
 .card-product img {
   height: 100%;
-  width: 300px;
+  width: 100%;
   object-fit: cover;
 }
 
@@ -32,6 +33,7 @@
 .card-product .card-product-infos {
   padding: 16px;
 }
+
 #card-buttons {
   margin: 36px;
 }

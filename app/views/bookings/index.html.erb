@@ -1,21 +1,42 @@
 <br>
-<h1>My bookings</h1>
-<div class="row">
-  <% @bookings.each do |booking| %>
-    <div class="card-product">
-      <% if booking.meal.photo.attached? %>
-        <%= cl_image_tag booking.meal.photo.key, height: 300, width: 300, crop: :fill %>
-      <% else %>
-        <%= image_tag "chef_logo_alt.png" , height: 300, width: 300, crop: :fill %>
+<div class="bookings">
+    <div class="row">
+      <h1 class="pl-3 ml-0">Restaurants Booked</h1>
+      <% @bookings.each do |booking| %>
+        <div class="card-product">
+          <% if booking.meal.photo.attached? %>
+            <%= cl_image_tag booking.meal.photo.key, height: 300, width: 300, crop: :fill %>
+          <% else %>
+            <%= image_tag "chef_logo_alt.png" , height: 300, width: 300, crop: :fill %>
+          <% end %>
+          <div class="card-product-infos">
+            <h2><%= booking.meal.title %></h2>
+            <p>Customer: <%= booking.user.email %></p>
+            <p>Date: <%= booking.date %></p>
+            <p>Time: <%= booking.time %></p>
+            <p>Description: <%= booking.meal.description %></p>
+          </div>
+        <%= link_to 'Add Review', new_booking_review_path(booking), class: "btn btn-outline-dark" %>
+        </div>
       <% end %>
-      <div class="card-product-infos">
-        <h2><%= booking.meal.title %></h2>
-        <p>Customer: <%= booking.user.email %></p>
-        <p>Date: <%= booking.date %></p>
-        <p>Time: <%= booking.time %></p>
-        <p>Description: <%= booking.meal.description %></p>
-      </div>
-    <%= link_to 'Add Review', new_booking_review_path(booking), class: "btn btn-outline-dark" %>
+
+      <h1 class="pl-3 ml-0">My Cooking Events</h1>
+      <% @bookings.each do |booking| %>
+        <div class="card-product">
+          <% if booking.meal.photo.attached? %>
+            <%= cl_image_tag booking.meal.photo.key, height: 300, width: 300, crop: :fill %>
+          <% else %>
+            <%= image_tag "chef_logo_alt.png" , height: 300, width: 300, crop: :fill %>
+          <% end %>
+          <div class="card-product-infos">
+            <h2><%= booking.meal.title %></h2>
+            <p>Customer: <%= booking.user.email %></p>
+            <p>Date: <%= booking.date %></p>
+            <p>Time: <%= booking.time %></p>
+            <p>Description: <%= booking.meal.description %></p>
+          </div>
+        <%= link_to 'Add Review', new_booking_review_path(booking), class: "btn btn-outline-dark" %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
 </div>
