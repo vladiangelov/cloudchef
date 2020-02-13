@@ -11,6 +11,14 @@
     <p>Category: <%= @meal.category %></p>
     <p>Price: <%= @meal.price %></p>
     <p>Cooking_time: <%= @meal.cooking_time %></p>
+    <p><strong>Reviews:</strong></p>
+    <div>
+      <p>
+      <% @meal.reviews.each do |review| %>
+      <%= review.content %> (<%= "*" * review.rating %>)
+      <% end %>
+      </p>
+    </div>
   </div>
 </div>
 
