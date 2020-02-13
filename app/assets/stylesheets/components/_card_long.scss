@@ -1,4 +1,4 @@
-.card-product {
+.card-long {
   margin-left: 16px;
   margin-bottom: 36px;
   overflow: hidden;
@@ -9,20 +9,20 @@
   align-items: center;
 }
 
-.card-product img {
+.card-long img {
   height: 100%;
   width: 100%;
   object-fit: cover;
 }
 
-.card-product h2 {
+.card-long h2 {
   font-size: 36px;
   font-weight: bold;
   margin: 0;
   font-family: 'Clicker Script', cursive;
 }
 
-.card-product p {
+.card-long p {
   font-size: 12px;
   line-height: 1.4;
   opacity: .7;
@@ -30,7 +30,7 @@
   margin-top: 8px;
 }
 
-.card-product .card-product-infos {
+.card-long .card-long-infos {
   padding: 16px;
 }
 
