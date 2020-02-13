@@ -13,7 +13,14 @@ class MealsController < ApplicationController
         infoWindow: render_to_string(partial: "map_box", locals: { meal: meal })
       }
     end
+    if params[:query].present?
+      sql_query = "title ILIKE :query OR category ILIKE :query"
+      @meals = Meal.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @meals = Meal.all
+    end
   end
+
 
   def show
     #@reviews = @meal.reviews
