@@ -70,6 +70,6 @@ class MealsController < ApplicationController
   end
 
   def meal_params
-    params.require(:meal).permit(%i[title description category price cooking_time photo])
+    params.require(:meal).permit(%i[title description category price address cooking_time photo])
   end
 end
