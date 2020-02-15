@@ -1,10 +1,16 @@
 
 
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to meals_path, class: "navbar-brand" do %>
-    <%= image_tag "chef_logo.png" %>
+  <div style="display: flex">
+    <%= link_to meals_path, class: "navbar-brand" do %>
+      <%= image_tag "chef_logo.png" %>
     <% end %>
-
+    <% if user_signed_in? %>
+      <div class="nav-item navbar-nav">
+        <%= link_to "Create a Meal", new_meal_path, class: "nav-link" %>
+      </div>
+    <% end %>
+  </div>
   <h2 id="chef_title">CloudChef</h2>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>

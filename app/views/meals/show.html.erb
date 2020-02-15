@@ -16,9 +16,9 @@
         <p><strong>Rating</strong></p>
         <% @meal_ratings_sum = 0 %>
         <% @meal.reviews.each do |review| %>
-        <% @meal_ratings_sum += review.rating %>
-        <% @meal_rating = @meal_ratings_sum / @meal.reviews.size%>
-        <% @empty_stars = 5 - @meal_rating %>
+          <% @meal_ratings_sum += review.rating %>
+          <% @meal_rating = @meal_ratings_sum / @meal.reviews.size%>
+          <% @empty_stars = 5 - @meal_rating %>
         <% end %>
         <p>
           <% @meal_rating.times do%>
