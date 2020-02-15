@@ -14,7 +14,7 @@ class ReviewsController < ApplicationController
     authorize @review
     @review.save
 
-    redirect_to meal_booking_path(@booking.meal, @booking)
+    redirect_to meal_path(@booking.meal)
   end
 
   private
