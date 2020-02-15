@@ -9,8 +9,8 @@
     <p>Chef: <%= @meal.user.email %></p>
     <p>Description: <%= @meal.description %></p>
     <p>Category: <%= @meal.category %></p>
-    <p>Price: <%= @meal.price %></p>
-    <p>Cooking_time: <%= @meal.cooking_time %></p>
+    <p>Price: <i class="fas fa-pound-sign"></i> <%= @meal.price %></p>
+    <p>Cooking time: <%= @meal.cooking_time %></p>
     <div class="card-product-reviews">
       <% if @meal.reviews.size !=0 %>
         <p><strong>Rating</strong></p>
@@ -46,7 +46,7 @@
         <% else %>
               <%= image_tag "https://kitt.lewagon.com/placeholder/users/brycole", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <% end %>
-        <%= review.booking.user.email.capitalize %>
+        Review by: <%= review.booking.user.email.split("@").first.capitalize %>
       </div>
       <div>
         <%= review.content %>
@@ -54,7 +54,6 @@
     </div>
   <% end %>
 </div>
-
 
 <div id="card-buttons">
   <%= link_to 'Back to Meals', meals_path, class: "btn btn-outline-dark" %>
