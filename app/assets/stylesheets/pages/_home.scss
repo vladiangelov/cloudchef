@@ -1,13 +1,57 @@
 // Specific CSS for your home-page
 
-.img-home {
-   background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), asset-url("home1.jpeg");
-   background-size: cover;
-   height: 100vh;
+.navbar-lewagon-home {
+  justify-content: space-between;
+  background: white;
 }
 
-.btn {
-  color: white;
+.navbar-lewagon-home .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-lewagon-home .navbar-brand img {
+  width: 40px;
+  height: 40px;
+}
+#chef_title {
+  font-family: 'Clicker Script', cursive;
+  font-size: 40px;
+}
+
+
+.home-container {
+  display: flex;
+  // align-items: center;
+  // justify-content: space-around;
+  height: 100vh;
+
+  .img-home {
+    flex: 1;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 54px;
+    text-decoration: none;
+    font-family: 'Clicker Script', cursive;
+  }
+
+  .img-home-left {
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), asset-url("img-2.jpeg");
+  }
+
+  .img-home-right {
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), asset-url("home3.jpeg");
+  }
+
+  .img-home:hover {
+    opacity:0.7;
+
+  }
+
 
 }
+
 
