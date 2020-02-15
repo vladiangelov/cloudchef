@@ -3,7 +3,8 @@
   <%= text_field_tag :query,
     params[:query],
     class: "form-control",
-    placeholder: "Find a Meal"
+    placeholder: "Find a Meal",
+    autocomplete: "off"
   %>
   <%= submit_tag "Search", class: "btn btn-primary" %>
   </button>

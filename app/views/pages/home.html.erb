@@ -1,2 +1,51 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <%= link_to meals_path, class: "navbar-brand" do %>
+    <%= image_tag "chef_logo.png" %>
+    <% end %>
+
+  <h2 id="chef_title">CloudChef</h2>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <% if user_signed_in? %>
+        <li class="nav-item active">
+          <%= link_to "Home", meals_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "My Bookings", bookings_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item dropdown">
+          <%= image_tag "https://avatars2.githubusercontent.com/u/22333099?v=4", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <%= link_to "My Bookings", "#", class: "dropdown-item" %>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+
+<div class="home-container">
+
+  <%= link_to 'In search a great meal?', meals_path, class: "img-home img-home-left" %>
+
+
+
+    <%= link_to 'In the mood to cook?', new_meal_path, class: "img-home img-home-right" %>
+
+
+  </a>
+
+</div>
