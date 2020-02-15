@@ -11,15 +11,35 @@
     <p>Category: <%= @meal.category %></p>
     <p>Price: <%= @meal.price %></p>
     <p>Cooking_time: <%= @meal.cooking_time %></p>
-    <p><strong>Reviews:</strong></p>
-    <div>
-      <p>
-      <% @meal.reviews.each do |review| %>
-      <%= review.content %> (<%= "*" * review.rating %>)
+    <div class="card-product-reviews">
+      <% if @meal.reviews.size !=0 %>
+        <p><strong>Rating</strong></p>
+        <% @meal_ratings_sum = 0 %>
+        <% @meal.reviews.each do |review| %>
+        <% @meal_ratings_sum += review.rating %>
+        <% @meal_rating = @meal_ratings_sum / @meal.reviews.size%>
+        <% @empty_stars = 5 - @meal_rating %>
+        <% end %>
+        <p>
+          <% @meal_rating.times do%>
+            <i class="fas fa-star"></i>
+          <% end %>
+          <% @empty_stars.times do %>
+            <i class="far fa-star"></i>
+          <% end %>
+        </p>
+        <p id="show-reviews-button">Show More</p>
+      <% else %>
+        <p><strong>No reviews yet</strong></p>
       <% end %>
-      </p>
     </div>
   </div>
+</div>
+
+<div class="card-reviews" id="card-reviews-id">
+  <% @meal.reviews.each do |review| %>
+    <li><%= review.content %></li><br>
+  <% end %>
 </div>
 
 

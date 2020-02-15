@@ -5,5 +5,7 @@ import 'mapbox-gl/dist/mapbox-gl.css'; // <-- you need to uncomment the styleshe
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 
 import { initMapbox } from '../packs/init_mapbox';
+import { showReviews } from '../packs/show_reviews';
 
 initMapbox();
+showReviews();
