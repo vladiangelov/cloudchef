@@ -3,7 +3,8 @@
   <%= text_field_tag :query,
     params[:query],
     class: "form-control",
-    placeholder: "Find a Meal"
+    placeholder: "Find a Meal",
+    autocomplete: "off"
   %>
   <%= submit_tag "Search", class: "btn btn-primary" %>
   </button>
@@ -16,9 +17,9 @@
       <div class="card-trip">
         <%= link_to meal_path(meal), class: "card-link" do %>
           <% if meal.photo.attached? %>
-            <%= cl_image_tag meal.photo.key, height: 300, crop: :fit%>
+            <%= cl_image_tag meal.photo.key, height: 250, width: 400, crop: :fill%>
           <% else %>
-            <%= image_tag "chef_logo_alt.png", height: 300 %>
+            <%= image_tag "chef_logo_alt.png", height: 250 %>
           <% end %>
           <div class="card-trip-infos">
             <div>
