@@ -24,8 +24,10 @@
           <%#= image_tag "https://avatars2.githubusercontent.com/u/22333099?v=4", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% if current_user.id == 1 %>
               <%= image_tag "https://kitt.lewagon.com/placeholder/users/khalidir", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <% else %>
+            <% elsif current_user.id == 2 %>
               <%= image_tag "https://kitt.lewagon.com/placeholder/users/brycole", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% else %>
+              <%= image_tag "https://kitt.lewagon.com/placeholder/users/aselassie", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% end %>
 
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

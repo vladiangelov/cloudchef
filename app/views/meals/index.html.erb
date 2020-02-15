@@ -31,8 +31,10 @@
             <!-- <img src="https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1573660923/rayadzbf4p9tjg6mgte4.jpg" class="card-trip-user avatar-bordered" /> -->
               <% if meal.user_id == 1 %>
                 <img src="https://kitt.lewagon.com/placeholder/users/khalidir" class="card-trip-user avatar-bordered" />
-              <% else %>
+              <% elsif meal.user_id == 2 %>
                 <img src="https://kitt.lewagon.com/placeholder/users/brycole" class="card-trip-user avatar-bordered" />
+              <% else %>
+                <img src="https://kitt.lewagon.com/placeholder/users/aselassie" class="card-trip-user avatar-bordered" />
               <% end %>
           </div>
         <% end %>
