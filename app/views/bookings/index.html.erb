@@ -13,8 +13,8 @@
             <div class="card-long-infos">
               <h2><%= booking.meal.title %></h2>
               <p>Customer: <%= booking.user.email %></p>
-              <p>Date: <%= booking.date %></p>
-              <p>Time: <%= booking.time %></p>
+              <p>Date: <%= booking.date_formatted %></p>
+              <p>Time: <%= booking.time_formatted %></p>
               <p>Description: <%= booking.meal.description %></p>
             </div>
           </div>
@@ -34,8 +34,8 @@
             <div class="card-long-infos">
               <h2><%= booking.meal.title %></h2>
               <p>Customer: <%= booking.user.email %></p>
-              <p>Date: <%= booking.date %></p>
-              <p>Time: <%= booking.time %></p>
+              <p>Date: <%= booking.date_formatted %></p>
+              <p>Time: <%= booking.time_formatted %></p>
               <p>Description: <%= booking.meal.description %></p>
             </div>
           <%= link_to 'Add Review', new_booking_review_path(booking), class: "btn btn-outline-dark" %>
