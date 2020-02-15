@@ -8,8 +8,8 @@
 
 require "open-uri"
 
-user1 = User.create! :email => 'john@gmail.com', :password => '123456', :password_confirmation => '123456'
-user2 = User.create! :email => 'bob@gmail.com', :password => '123456', :password_confirmation => '123456'
+user1 = User.create! :email => 'rasheed@gmail.com', :password => '123456', :password_confirmation => '123456'
+user2 = User.create! :email => 'bryan@gmail.com', :password => '123456', :password_confirmation => '123456'
 post_code = ['E5 9BL', 'E10 5EZ', 'SW10 0TZ', 'SE5 8TR', 'SE14 5RT', 'SW7 2LT', 'SE15 5NJ', 'SE10 0NA', 'N7 0EG', 'NW1 0EH']
 
 5.times do
@@ -50,7 +50,7 @@ end
 
   puts "Adding address...#{post_code[0]}"
   meal.address = post_code.slice!(0)
-  
+
   meal.save
   sleep(2)
 end
