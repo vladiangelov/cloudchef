@@ -10,6 +10,17 @@ class BookingsController < ApplicationController
     @chef_bookings = Booking.joins(:meal).where(meals: { user: current_user })
     authorize @chef_bookings
 
+    @meals_map = @chef_bookings.map do |booking|
+      booking.meal
+    end
+
+    @markers = @meals_map.map do |meal|
+      {
+        lat: meal.latitude,
+        lng: meal.longitude,
+        infoWindow: render_to_string(partial: "map_box", locals: { meal: meal })
+      }
+    end
     # The below line can be used in the view along Booking.all
     # I updated the SQL query above so this code is no longer needed
     # if booking.meal.user == current_user

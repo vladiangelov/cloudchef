@@ -38,11 +38,3 @@
 <% if policy(@meals).create? %>
   <%= link_to 'create a meal', new_meal_path, class: "btn btn-outline-dark" %>
 <% end %>
-
-<div
-  id="map"
-  style="width: 100%;
-  height: 600px;"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-></div>
