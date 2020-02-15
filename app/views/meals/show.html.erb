@@ -1,4 +1,4 @@
-<div class="card-long">
+<div class="card-long mt-3">
   <% if @meal.photo.attached? %>
     <%= cl_image_tag @meal.photo.key, height: 300, width: 300, crop: :fill %>
   <% else %>
@@ -36,9 +36,22 @@
   </div>
 </div>
 
-<div class="card-reviews" id="card-reviews-id">
+<div class="card-reviews-visible" id="card-reviews-id">
+  <h2 class="border-bottom">Reviews</h2>
   <% @meal.reviews.each do |review| %>
-    <li><%= review.content %></li><br>
+    <div class="review-small border-bottom pt-1 mr-0">
+      <div>
+        <% if review.booking.user_id == 1 %>
+              <%= image_tag "https://kitt.lewagon.com/placeholder/users/khalidir", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <% else %>
+              <%= image_tag "https://kitt.lewagon.com/placeholder/users/brycole", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <% end %>
+        <%= review.booking.user.email.capitalize %>
+      </div>
+      <div>
+        <%= review.content %>
+      </div>
+    </div>
   <% end %>
 </div>
 
