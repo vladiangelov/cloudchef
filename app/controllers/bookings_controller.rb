@@ -6,6 +6,15 @@ class BookingsController < ApplicationController
     authorize @bookings
   end
 
+  def events
+    @chef_bookings = Booking.joins(:meal).where(meals: { user: current_user })
+    authorize @chef_bookings
+
+    # The below line can be used in the view along Booking.all
+    # I updated the SQL query above so this code is no longer needed
+    # if booking.meal.user == current_user
+  end
+
   def new
     @booking = Booking.new
     authorize @booking

@@ -1,7 +1,7 @@
 class BookingPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      scope.where(user_id: user.id)
     end
   end
 
@@ -10,6 +10,10 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def new?
+    true
+  end
+
+  def events?
     true
   end
 

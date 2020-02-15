@@ -7,5 +7,10 @@ Rails.application.routes.draw do
   end
   resources :bookings, only: [ :index ] do
     resources :reviews, only: [ :new, :create ]
+    collection do
+      get 'events'
+    end
   end
+
+
 end
