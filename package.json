@@ -5,7 +5,7 @@
     "@mapbox/mapbox-gl-geocoder": "^4.5.1",
     "@rails/webpacker": "4.2.2",
     "bootstrap": "^4.4.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "mapbox-gl": "^1.7.0",
     "places.js": "^1.17.1",
     "popper.js": "^1.16.1"
